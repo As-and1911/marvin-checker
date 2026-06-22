@@ -23,7 +23,13 @@ async def checking_moulinette():
     while True:
         print("🔍 Checking the moulinette")
         data = get_test_results()
-        
+
+        if data == "TOKEN EXPIRED":
+            await channel.send(
+                "⚠️ **Epitech Token expired !**\n"
+                "Go to my.epitech.eu -> DevTools -> and copy the new Bearer token -> update the new EPI_TOKEN on Raileway"
+            )
+
         if data:
             results = data["results"]
             last = results[-1]

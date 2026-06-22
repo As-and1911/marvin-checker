@@ -26,6 +26,9 @@ def get_test_results():
 
     print(f"Status code : {response.status_code}")
 
+    if response.status_code == 401 or response.status_code == 403:
+        return "TOKEN EXPIRED"
+
     if response.status_code == 200 or response.status_code == 304:
         data = response.json()
         return data
